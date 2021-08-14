@@ -1,0 +1,62 @@
+a {
+   color: var(--anchor-color);
+   text-decoration: none;
+}
+  
+a:hover {
+   background-color: var(--anchor-hover-background-color);
+   color: var(--anchor-hover-color)
+}
+  
+/* a:visited {
+   color: #3c275a;
+} */
+  
+.app-header {
+    text-align: center;
+    font-weight: 400;
+    border: none;
+    color: inherit;
+    background-color: inherit;
+}
+
+.return-home {
+    color: #4f3674;
+    text-decoration: none;
+}
+  
+.return-home:hover {
+    background-color: #d6a800;
+    color: #4f3674;
+}
+  
+.return-home:visited {
+    color: #3c275a;
+}
+
+.form {
+    display: inline-grid;
+    grid-template-columns: auto;
+}
+  
+.form-field {
+    padding: 20px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.assign-container {
+    padding: 10px;
+}
+
+.assign-content {
+    width: 600px;
+    margin: 3% auto 0;
+}
+
+.assign-results-text {
+    text-align: center;
+    font-size: 28px;
+}
