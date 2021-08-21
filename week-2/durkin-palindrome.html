@@ -1,0 +1,103 @@
+<!--
+Author: Evan Durkin
+Title: Assignment 2.2
+Description: JS functions used to return current date and
+checking a string to see if its reverse matches the original.
+References:
+- JS STrings: https://www.w3schools.com/js/js_strings.asp
+- toLocaleDateString: https://www.w3schools.com/jsref/jsref_tolocaledatestring.asp
+- length string: https://www.w3schools.com/jsref/jsref_length_string.asp
+- reverse array: https://www.w3schools.com/jsref/jsref_reverse.asp
+-->
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../site.css" type="text/css" media="all">
+    <link rel="stylesheet" href="../theme.css" type="text/css" media="all">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <title>WEB 330 – Enterprise JavaScript II</title>
+</head>
+
+<body class="light-theme">
+    <div id="container">
+        <h1 class="app-header">Welcome to the Palindrome App!</h1>
+        <div class="card card-content">
+            <div class="card-title">Palindrome Checker</div>
+            <div id="form">
+                <label class="form-field">Phrase Value</label>
+                <input id="txtPhrase" class="input">
+            </div>
+            <button onclick="checkPhrase()" id="btnCheckPhrase" class="btn btn-primary">Check Phrase</button>
+        </div>
+
+        <a class="return-home" href="https://evandurkin.github.io/web-231/">Return</a>
+
+        <div class="card card-content">
+            <div class="card-title">Palindrome Results</div>
+            <div id="assign-results-header"></div>
+            <div id="assign-results" class="assign-results-text"></div>
+        </div>
+    </div>
+
+    <script>
+        let txtLength = "";
+        let r = "";
+        let p = "";
+
+        //returns current date in English-US format
+        function getTodaysDate() {
+            let d = new Date();
+            return d.toLocaleDateString("en-US");
+        }
+
+        //returns length of string variable
+        function getLength(txtLength) {
+            return txtLength.length;
+        }
+
+        //takes string and splits characters, reverses characters, and then joins them.
+        function reverse(r) {
+            return r.split("").reverse().join("");
+        }
+
+        //if reverse of string characters is the same as original, returns true
+        function isPalindrome(p) {
+            if (reverse(p) === p) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        //grabs user input phrase to verify phrase date, length and reverse
+        function checkPhrase() {
+            let txtPhrase = document.getElementById("txtPhrase").value.toLowerCase().replace(/[^a-zA-Z0-9]+/g,'');
+            let assignResults = document.getElementById("assign-results").innerHTML;
+            let today = getTodaysDate();
+            let len = getLength(txtPhrase);
+            let reversedPhrase = reverse(txtPhrase);
+            let header = 
+                `Date: ${today}` + "<br>" + 
+                `Original Phrase: ${txtPhrase}` + "<br>" + 
+                `Reversed Phrase: ${reversedPhrase}` + "<br>" +
+                `Phrase Length: ${len}`;
+
+            document.getElementById("assign-results-header").innerHTML = header;
+
+            //if reversed characters of user input phrase are the same as original, returns true message
+            if (isPalindrome(txtPhrase) === true) {
+                assignResults = txtPhrase + " " + "<u><b>is</b></u> a palindrome!";
+            }
+            else {
+                assignResults = txtPhrase + " " + "<u><b>is not</b></u> a palindrome!";
+                }
+            document.getElementById("assign-results").innerHTML = assignResults
+            }
+    </script>
+</body>
+</html>
