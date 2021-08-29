@@ -85,70 +85,71 @@
                     <label for="pie">
                         <input type="checkbox" id="pie" name="pie">Apple Pie ($3.80)
                     </label><br/>
-                    <button onclick="placeOrder()" id="btnOrder" class="btn btn-primary">Place Order</button>
+                    <button  id="btnOrder" class="btn btn-primary">Place Order</button>
                 </div>
             </div>
         </div>
         <a class="return-home" href="https://evandurkin.github.io/web-330/">Return</a>
         <div class="card">
             <div class="card-title">Order Summary</div>
-            <div class="card-content" id="order-total" class="assign-results-text"></div>
+            <div id="order-total" class="assign-results-text"></div>
         </div>
         </div>
+    
+        <script type="module">
+            import { Bill, Beverage, Appetizer, MainCourse, Dessert } from "./index.js";
+
+
+
+            document.getElementById("btnOrder").addEventListener("click", function() {
+                const beveragesEl = document.getElementById("beverages");
+                const beverages = beveragesEl.getElementsByTagName("input");
+    
+                const appetizersEl = document.getElementById("appetizers");
+                const appetizers = appetizersEl.getElementsByTagName("input");
+                
+                const mainCoursesEl = document.getElementById("main-courses");
+                const mainCourses = mainCoursesEl.getElementsByTagName("input");
+    
+                const dessertsEl = document.getElementById("desserts");
+                const desserts = dessertsEl.getElementsByTagName("input");
+                
+                let bill = new Bill(); 
+      
+            
+                for (let beverage of beverages)
+                {
+                    if (beverage.checked)
+                    {
+                        bill.addBeverage(new Beverage(beverage.name, beverage.price));
+                    }
+                }
+    
+                for (let appetizer of appetizers)
+                {
+                    if (appetizer.checked)
+                    {
+                        bill.addAppetizer(new Appetizer(appetizer.name, appetizer.price));
+                    }
+                }
+    
+                for (let mainCourse of mainCourses)
+                {
+                    if (mainCourse.checked)
+                    {
+                        bill.addMainCourse(new MainCourse(mainCourse.name, mainCourse.price));
+                    }
+                }
+    
+                for (let dessert of desserts)
+                {
+                    if (dessert.checked)
+                    {
+                        bill.addDessert(new Dessert(dessert.name, dessert.price));
+                    }
+                }
+                document.getElementById("order-total").innerHTML = "Your order total is" + " " + bill;
+            });
+        </script>
     </body>
-
-    <script type="module" src="./index.js">
-        import { Bill, Beverage, Appetizer, MainCourse, Dessert } from "./index.js";
-
-        function placeOrder() {
-            const beveragesEl = document.getElementById("beverages");
-            const beverages = beveragesEl.getElementsByTagName("input");
-
-            const appetizersEl = document.getElementById("appetizers");
-            const appetizers = appetizersEl.getElementsByTagName("input");
-            
-            const mainCoursesEl = document.getElementById("main-courses");
-            const mainCourses = mainCoursesEl.getElementsByTagName("input");
-
-            const dessertsEl = document.getElementById("desserts");
-            const desserts = dessertsEl.getElementsByTagName("input");
-            
-            let bill = new Bill(); 
-  
-        
-            for (let beverage of beverages)
-            {
-                if (beverage.checked)
-                {
-                    bill.addBeverage(new Beverage(beverage.name, beverage.price));
-                }
-            }
-
-            for (let appetizer of appetizers)
-            {
-                if (appetizer.checked)
-                {
-                    bill.addAppetizer(new Appetizer(appetizer.name, appetizer.price));
-                }
-            }
-
-            for (let mainCourse of mainCourses)
-            {
-                if (mainCourse.checked)
-                {
-                    bill.addMainCourse(new MainCourse(mainCourse.name, mainCourse.price));
-                }
-            }
-
-            for (let dessert of desserts)
-            {
-                if (dessert.checked)
-                {
-                    dessert.addDessert(new Dessert(dessert.name, dessert.price));
-                }
-            }
-                document.getElementById("order-total").innerHTML = "Your order total is" + getTotal();
-        }
-        
-    </script>
 </html>

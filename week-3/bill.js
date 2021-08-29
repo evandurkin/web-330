@@ -1,5 +1,3 @@
-
-
 export class Bill {
     constructor(_beverages, _appetizers, _mainCourses, _desserts){
         this._beverages = [];
