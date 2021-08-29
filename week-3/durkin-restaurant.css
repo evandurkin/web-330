@@ -1,0 +1,9 @@
+.card-menu {
+  display: inline-block;
+  width: 48%;
+  height: 48%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  background-color: var(--card-background-color);
+  margin: 1em 1em;
+}
