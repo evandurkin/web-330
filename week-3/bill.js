@@ -1,3 +1,8 @@
+//Author: Evan Durkin
+//Title: Assignment 3.4
+//Date: August 29, 2021
+
+//creates Bill class with four properties
 export class Bill {
     constructor(_beverages, _appetizers, _mainCourses, _desserts){
         this._beverages = [];
@@ -5,6 +10,7 @@ export class Bill {
         this._mainCourses = [];
         this._desserts = [];
     }
+    //functions to push variable selections into arrays
     addBeverage(beverage) 
     {
         this._beverages.push(beverage);
@@ -24,36 +30,34 @@ export class Bill {
     {
         this._desserts.push(dessert);
     }
-
+    
+    //function to calculate menu selection prices
     getTotal()
     {
         let total = 0;
 
-        let beverageTotal = this._beverages.forEach(function(beverage)
+        let beverageTotal = this._beverages.forEach((beverage) =>
         {
             total += parseFloat(beverage.price);
-        })
+        });
 
-        let appetizerTotal = this._appetizers.forEach(function(appetizer)
+        let appetizerTotal = this._appetizers.forEach((appetizer) =>
         {
             total += parseFloat(appetizer.price);
-        })
+        });
 
-        let mainCourseTotal = this._mainCourses.forEach(function(mainCourse)
+        let mainCourseTotal = this._mainCourses.forEach((mainCourse) =>
         {
             total += parseFloat(mainCourse.price);
-        })
+        });
 
-        let dessertTotal = this._desserts.forEach(function(dessert)
+        let dessertTotal = this._desserts.forEach((dessert) =>
         {
             total += parseFloat(dessert.price);
-        })
+        });
 
-        let orderTotal = beverageTotal + appetizerTotal + mainCourseTotal + dessertTotal;
-        return orderTotal;
+        return total.toFixed(2);
     }
-
-
-
 }
+
 
