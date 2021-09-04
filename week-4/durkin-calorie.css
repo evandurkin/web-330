@@ -1,0 +1,13 @@
+/*
+Title: Assignment 4.2
+Author: Evan Durkin
+Date: September 4, 2021
+Description: CSS file for Calorie App
+*/
+
+#foodList {
+  float: right;
+  color: #df546a;
+  font-size: 12px;
+  letter-spacing: 2px;
+}

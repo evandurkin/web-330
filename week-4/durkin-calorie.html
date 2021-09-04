@@ -1,0 +1,113 @@
+<!--
+    Title: Assignment 4.2
+    Author: Evan Durkin
+    Date: September 4, 2021
+    References
+    js for/of: https://www.w3schools.com/js/js_loop_forof.asp
+    find(): https://www.w3schools.com/jsref/jsref_filter.asp
+    toLowerCase(): https://www.w3schools.com/jsref/jsref_tolowercase.asp
+-->
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../site.css" type="text/css" media="all">
+        <link rel="stylesheet" href="../theme.css" type="text/css" media="all">
+        <link rel="stylesheet" href="durkin-calorie.css" type="text/css" media="all">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+        <title>Enterprise JavaScript II</title>
+
+        <body class="light-theme" onload="clearLocalStorage()">
+            <div id="container">
+                <i onclick="toggleMode(this)" id="icon-mode" class="fa fa-toggle-off pull-right" style="font-size: 28px;"><span
+                    id="icon-text"></span></i>
+                <br>
+                <h1 class="app-header">Welcome to the Calorie App!</h1>
+
+                <!--card to hold user food input-->
+                <div class="card">
+                    <div class="card-title">Calorie Search Form</div>
+                    <div class="card-content">
+                        <div class="form">
+                            <div class="form-field">Enter a food item:
+                                <input class="input" id="txtFoodItem" type="text"><br>
+                                <span id="foodList"></span>
+                            </div>
+                            <div class="form-field">
+                                <button class="btn btn-primary full-width" id="btnSearch">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="return-home" ref="https://evandurkin.github.io/web-330/">Return</a>
+                
+                <!--card to hold search results-->
+                <div class="card">
+                    <div class="card-title">Search Results</div>
+                    <div class="card-content">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Calories</th>
+                                </tr>
+                            </thead>
+                            <tbody id="search-results">   
+                    </div>
+                </div>
+            </div>
+        
+        <!--source for light/dark toggle mode function-->
+        <script type="application/javascript" src="../toggle-mode.js"></script> 
+        
+        
+        <script type="module">
+            import { CalorieConverter } from "./calorie-converter.js";
+
+            // grabs user food input selection
+            let txtFoodItemEl = document.getElementById("txtFoodItem");
+            
+            // onclick function for submitting user input
+            document.getElementById("btnSearch").onclick = function() {
+                // variables to hold user input selection and match with food arrays
+                let txtFoodItem = txtFoodItemEl.value;
+                let foods = CalorieConverter.find(txtFoodItem);
+                let tableData = "";
+
+                // creates food table from CalorieConverter class and displays in HTML table
+                for (let food of foods) {
+                    let foodTable = 
+                        `<tr>
+                            <td>${food.name}</td>
+                            <td>${food.calories}</td>
+                        </tr>`
+                        tableData += foodTable;
+                }
+                tableData += "</tbody></table>";
+                document.getElementById("search-results").innerHTML = tableData;
+            }
+
+            // allows "Enter" key to function as Search button
+            document.addEventListener("keyup", function(event)
+            {
+                if (event.key === "Enter") {
+                    document.getElementById("btnSearch").click();
+                }
+            });
+
+            // variables to create the food list selection under the user input box
+            let foodList = CalorieConverter.data;
+            let foodListData = "<i>(Ex:";
+            for (let food of foodList)
+            {
+                foodListData += `${food.name}, `;
+            }
+            foodListData = `${foodListData.slice(0, -2)})</i>`;
+            document.getElementById("foodList").innerHTML = foodListData;
+        </script>  
+        </body>
+    </head>
+</html>
