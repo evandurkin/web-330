@@ -19,7 +19,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
         <title>Enterprise JavaScript II</title>
-
+    </head>
         <body class="light-theme" onload="clearLocalStorage()">
             <div id="container">
                 <i onclick="toggleMode(this)" id="icon-mode" class="fa fa-toggle-off pull-right" style="font-size: 28px;"><span
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                 </div>
-                <a class="return-home" ref="https://evandurkin.github.io/web-330/">Return</a>
+                <a class="return-home" href="https://evandurkin.github.io/web-330/">Return</a>
                 
                 <!--card to hold search results-->
                 <div class="card">
@@ -55,13 +55,15 @@
                                     <th>Calories</th>
                                 </tr>
                             </thead>
-                            <tbody id="search-results">   
+                            <tbody id="search-results">
+                            </tbody>
+                        </table>   
                     </div>
                 </div>
             </div>
         
         <!--source for light/dark toggle mode function-->
-        <script type="application/javascript" src="../toggle-mode.js"></script> 
+        <script src="../toggle-mode.js"></script> 
         
         
         <script type="module">
@@ -108,6 +110,5 @@
             foodListData = `${foodListData.slice(0, -2)})</i>`;
             document.getElementById("foodList").innerHTML = foodListData;
         </script>  
-        </body>
-    </head>
+    </body>
 </html>
