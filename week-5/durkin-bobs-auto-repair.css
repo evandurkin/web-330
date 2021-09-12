@@ -1,0 +1,28 @@
+/*
+    Title: Assignment 5
+    Author: Evan Durkin
+    Date: September 11, 2021
+*/
+
+#cart-message {
+  float: right;
+  color: #df546a;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+i:hover {
+  cursor: pointer;
+}
+
+#cart {
+  display: flex;
+  justify-content: center;
+  /* margin: 0 auto; */
+  font-size: 28px;
+  color: #4f3674;
+}
+
+#cartIcon {
+  padding: 8px 10px 0;
+}

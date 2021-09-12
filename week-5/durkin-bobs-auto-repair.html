@@ -1,0 +1,114 @@
+<!--
+    Title: Assignment 5
+    Author: Evan Durkin
+    Date: September 11, 2021
+    References
+    - js array: https://www.w3schools.com/js/js_array_iteration.asp
+    - js classes: https://www.w3schools.com/js/js_classes.asp
+    - for/of: https://www.w3schools.com/jsref/jsref_forof.asp
+-->
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../site.css" type="text/css" media="all">
+        <link rel="stylesheet" href="../theme.css" type="text/css" media="all">
+        <link rel="stylesheet" href="durkin-bobs-auto-repair.css" type="text/css" media="all">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet" />
+        <title>Enterprise JavaScript II</title>
+    </head>
+    
+    <body class="light-theme">
+        <div id="container">
+            <h1 class="app-header">Welcome to Bob's Automotive Repair Shop</h1>
+
+            <!--card to hold product listing menu-->
+            <div class="card">
+                <div class="card-title">Product Listing</div>
+                <cart-component id="cart"></cart-component>
+                    <div class="card-content">
+                        <div class="form">
+                            <label class="form-field">Choose a product:</label>
+                            <select class="drop-down-menu" id="productList">
+                                <option value="Select">--Select--</option>
+                                <option value="19.99">Oil Change</option>
+                                <option value="18.44">Filter Replacement</option>
+                                <option value="9.99">Wiper Fluid Refill</option>
+                            </select>
+                            <i id="cart-message">To view your shopping cart click on the cart icon</i>
+                        </br>
+                            <button class="btn btn-primary" id="btnAddProduct">Add to Cart</button>
+                        </div>  
+                    </div>
+            </div>
+
+            <a class="return-home" href="https://evandurkin.github.io/web-330/">Return</a>
+                
+            <!--card to hold shopping cart selections-->
+            <div class="card">
+                <div class="card-title">Shopping Cart</div>
+                <div class="card-content" id="shoppingCart"></div>
+            </div>
+        </div>
+
+        <script type="module">
+                // Importing classes
+                import { CartComponent } from "./cart-component.js";
+                import { Product } from "./product.js";
+                import { ShoppingCart } from "./shopping-cart.js";
+
+                // assigns shopping cart class to a variable and creates new cart count function
+                let shoppingCart = new ShoppingCart();
+                setCartCount();
+
+                // grabs the user selection and creates product message
+                document.getElementById("btnAddProduct").onclick = function() {
+                    // variables to hold product list information
+                    let productList = document.getElementById("productList");
+                    let product = productList.options[productList.selectedIndex].text;
+                    let productValue = productList.options[productList.selectedIndex].value;
+
+                    if (product != "--Select--") {
+                        shoppingCart.addProduct(new Product(product, productValue));
+                        setCartCount();
+                        alert(`${product} was added to your shopping cart!`);
+                        productList.value = "Select";
+                    }
+                }
+
+                // creates html table when user clicks on cartIcon
+                document.getElementById("cartIcon").onclick = function() {
+                    let cartDisplayTable = 
+                        `<table class="table">
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Price</th>`;
+                    
+                    for (let _products of shoppingCart) {
+                        cartDisplayTable +=
+                            `<tr>
+                                <td>${_products.id}</td>
+                                <td>${_products.name}</td>
+                                <td>${_products.price}</td>
+                            </tr>`
+                            console.log(_products);
+                    }
+
+                    cartDisplayTable += `</table>`
+
+                    document.getElementById("shoppingCart").innerHTML = cartDisplayTable;
+                }
+
+                // displays the number of items user selects for shopping cart
+                function setCartCount() {
+                    document.getElementById("cart-count").innerHTML = shoppingCart.count();
+                }
+
+            </script>
+        </div>
+    </body>
+</html>
