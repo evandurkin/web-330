@@ -1,0 +1,23 @@
+/*
+// Title: Assignment 6.2
+// Author: Evan Durkin
+// Date: September 19, 2021
+*/
+
+#errorLog {
+  display: block;
+  float: left;
+  text-align: left;
+}
+.danger {
+  float: right;
+  color: #df546a;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-align: right;
+}
+
+.form-label {
+  display: inline-block;
+  padding-top: 1rem;
+}

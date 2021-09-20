@@ -1,0 +1,25 @@
+// Title: Assignment 6.2
+// Author: Evan Durkin
+// Date: September 19, 2021
+
+// FinanceCalculator class for calculating interest rate
+export class FinanceCalculator {
+    static MONTHS_IN_YEAR = 12;
+
+    static calculateFutureValue(monthlyPayment, rate, years) {
+        let months = years * FinanceCalculator.MONTHS_IN_YEAR;
+        let interestRate = 1 + rate/100;
+        let presentValue = monthlyPayment * months;
+        let futureValue = presentValue * (Math.pow(interestRate, months));
+        return futureValue.toFixed(2);
+    }
+
+    // converts calculation to US dollars 
+    static convertToCurrency(field) {
+        let currencyFormatter = new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD"
+        });
+        return currencyFormatter.format(field);
+    }
+}

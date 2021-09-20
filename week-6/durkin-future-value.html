@@ -1,0 +1,150 @@
+<!--
+    Title: Assignment 6.2
+    Author: Evan Durkin
+    Date: September 19, 2021
+    References:
+    - for/of: https://www.w3schools.com/js/js_loop_forof.asp
+    - boolean: https://www.w3schools.com/js/js_booleans.asp
+    - js classes: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
+    - intl number: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
+-->
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../site.css" type="text/css" media="all">
+        <link rel="stylesheet" href="../theme.css" type="text/css" media="all">
+        <link rel="stylesheet" href="durkin-future-value.css" type="text/css" media="all">
+        <link rel="stylesheet" href="../flex-layout.css" type="text/css" media="all">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet" />
+        <title>Enterprise JavaScript II</title>
+    </head>
+
+    <body class="light-theme">
+
+        <div id="container">
+            <h1 class="app-header">Welcome to the Future Value App!</h1>
+            <!--card to hold user inputs-->
+            <div class="card">
+                <div class="card-title">Future Value Calculator</div>
+                <div class="card-content">
+                    <div class="row"><!--displays error messages for wrong inputs-->
+                        <div class="col-12 danger" id="errorLog"></div>
+                    </div>
+                    <div class="form">
+                        <div class="row"><!--monthly payment amount input-->
+                            <div class="col-5 form-field form-label">Monthly Payment:</div>
+                            <input class="col-7 input form-field" id="txtMonthlyPayment" type="text">
+                        </div>
+                        <div class="row"><!--interest rate amount input-->
+                            <div class="col-5 form-field form-label">Interest Rate:</div>
+                            <input class="col-7 input form-field" id="txtYearlyRate" type="text">
+                        </div>
+                        <div class="row">
+                            <div class="col-12 danger" id="">Enter 11.1% as 11.1</div>
+                        </div>
+
+                        <div class="row"><!--drop-down menu for years-->
+                            <div class="col-5 form-field form-label">Number of Years:</div>
+                            <select class="col-7 drop-down-menu" id="listNumOfYears">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-field">
+                                <button class="btn btn-primary full-width" id="btnCalculate">Calculate</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="return-home" href="https://evandurkin.github.io/web-330/">Return</a>
+
+                <div class="card"><!--calculation results card-->
+                    <div class="card-title">Calculation as of <span id="today"></span></div>
+                    <div id="futureValue" class="assign-results-text card-content"></div>
+                </div>
+            </div>
+        </div>
+
+        <script type="module">
+
+            // importing classes
+            import { FinanceCalculator } from "./finance-calculator.js";
+            import { Validator } from "./validator.js";
+
+            // converts current date to US format
+            document.getElementById("today").innerHTML = new Date().toLocaleDateString("en-US");
+
+            // onclick for user's input
+            document.getElementById("btnCalculate").onclick = function() 
+            {
+                // variables for input values
+                let monthlyPayment = document.getElementById("txtMonthlyPayment").value;
+                let rate = document.getElementById("txtYearlyRate").value;
+                let years = document.getElementById("listNumOfYears").value;
+                let errorLogEl = document.getElementById("errorLog");
+
+                // variable to validate the monthly payment input field 
+                // also adds validators from classes
+                let monthlyPaymentValidator = new Validator("Monthly Payment", monthlyPayment);
+                monthlyPaymentValidator.addRequiredField();
+                monthlyPaymentValidator.addRequiredFloatField();
+                monthlyPaymentValidator.addFloatMinField(100);
+
+                // variable to validate the interest rate input field
+                // also adds validators from classes
+                let rateValidator = new Validator("Interest Rate", rate);
+                rateValidator.addRequiredField();
+                rateValidator.addRequiredFloatField();
+                rateValidator.addFloatMaxField(100);
+
+                // error message
+                let errorLog = [];
+                if (!monthlyPaymentValidator.validate()) {
+                    for (let msg of monthlyPaymentValidator.messages)
+                    {
+                        errorLog.push(msg);
+                    }
+                }
+
+                if (!rateValidator.validate()) {
+                    for (let msg of rateValidator.messages)
+                    {
+                        errorLog.push(msg);
+                    }
+                }
+
+                // creates calculation if user inputs are both valid
+                if (rateValidator.validate() && monthlyPaymentValidator.validate()) {
+                    errorLogEl.innerHTML = "";
+                    let futureValue = FinanceCalculator.calculateFutureValue(monthlyPayment, rate, years);
+                    let toCurrency = FinanceCalculator.convertToCurrency(futureValue);
+                    document.getElementById("futureValue").innerHTML = `The future value is ${toCurrency}`;
+                }   else {
+                    errorLogEl.innerHTML = "";
+
+                    let errorLogMessage = `<ul>`;
+                        for (let message of errorLog) {
+                            errorLogMessage += `<li>${message}</li>`;
+                        }
+                        errorLogMessage += `</ul>`;
+                        errorLogEl.innerHTML = errorLogMessage;
+                }
+            }
+        </script>        
+    </body>
+</html>
