@@ -1,0 +1,93 @@
+.site {
+  margin: 0 auto;
+  max-width: 50em;
+}
+
+.link-projects:hover {
+  color: #04bf68;
+  border: 3px solid #04bf68;
+  border-radius: 0;
+}
+
+.link-database:hover {
+  color: #9e91f2;
+  border: 3px solid #9e91f2;
+  border-radius: 0;
+}
+
+.link-api {
+  grid-column: 2/4;
+  grid-row: 3/4;
+}
+
+.link-resume {
+  grid-column: 1/2;
+  grid-row: 4/5;
+}
+
+.link-about {
+  grid-column: 3/4;
+  grid-row: 4/5;
+}
+
+@supports (grid-area: auto) {
+  /* Grid for view ports 600px and wider */
+  @media screen and (min-width: 600px) {
+    .site-index {
+      max-width: 75em;
+      min-width: 75em;
+      margin: 3em auto;
+    }
+
+    .main-area {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      grid-template-rows: auto auto auto auto;
+    }
+
+    .link-projects {
+      grid-column: 1/2;
+      grid-row: 1/2;
+    }
+
+    .img-projects {
+      grid-column: 2/4;
+      grid-row: 1/2;
+    }
+
+    .link-database {
+      grid-column: 1/3;
+      grid-row: 2/3;
+    }
+
+    .img-database {
+      grid-column: 3/4;
+      grid-row: 2/3;
+    }
+
+    .img-api {
+      grid-column: 1/2;
+      grid-row: 3/4;
+    }
+
+    .link-api {
+      grid-column: 2/4;
+      grid-row: 3/4;
+    }
+
+    .link-resume {
+      grid-column: 1/2;
+      grid-row: 4/5;
+    }
+
+    .img-resume {
+      grid-column: 2/3;
+      grid-row: 4/5;
+    }
+
+    .link-about {
+      grid-column: 3/4;
+      grid-row: 4/5;
+    }
+  }
+}
