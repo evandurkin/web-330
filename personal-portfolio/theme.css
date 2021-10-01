@@ -6,7 +6,8 @@ body {
 }
 
 h1,
-h2 {
+h2,
+.card-title {
   font-family: "neue-haas-grotesk-text", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -14,13 +15,23 @@ h2 {
 
 h1 {
   font-weight: bold;
+  font-size: 45px;
 }
 
-p {
+h2 {
+  margin-top: 0;
+}
+
+p,
+.header-container,
+.header-project-page,
+.footer-links,
+.footer-links-index {
   font-family: "neue-haas-grotesk-display", sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   font-style: normal;
   text-decoration: none;
+  color: white;
 }
 
 .link {
@@ -31,6 +42,19 @@ p {
   font-weight: 400;
   font-style: normal;
   padding: 10px;
+  vertical-align: bottom;
+}
+
+.view-project {
+  font-family: "neue-haas-grotesk-text", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: underline;
+  font-size: 16pt;
+}
+
+.view-project:hover {
+  color: #04bf68;
 }
 
 a {
@@ -43,10 +67,51 @@ a:hover {
   font-weight: 400;
   font-style: italic;
   text-decoration: none;
-  border: 3px solid red;
-  border-radius: 0;
 }
 
 a:visited {
   color: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+.p-card {
+  border-top: 1px solid white;
+  margin-bottom: 2em;
+  display: flex;
+}
+
+.p-card-title {
+  font-size: 16pt;
+  font-weight: bold;
+  grid-row: 1;
+  margin-top: 5px;
+}
+
+.p-card-content {
+  font-size: 16pt;
+  grid-row: 2;
+}
+
+.card {
+  border-top: 1px solid white;
+  margin-bottom: 2em;
+  margin-left: 3em;
+}
+
+.card-title {
+  font-size: 16pt;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.card-content {
+  font-size: 16pt;
 }

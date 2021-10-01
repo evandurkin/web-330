@@ -1,6 +1,10 @@
-<!--
-
--->
+<!--------------------------------
+    Title: Personal Portfolio
+    Author: Evan Durkin
+    References:
+        css grid: https://www.linkedin.com/learning/css-advanced-layouts-with-grid/welcome?u=73722380
+        sidebar nav: https://www.w3schools.com/howto/howto_js_sidenav.asp
+--------------------------------->
 
 <!DOCTYPE html>
 <html lang="en-US">
@@ -12,20 +16,29 @@
         <link rel="stylesheet" href="theme.css" type="text/css" media="all">
         <link rel="stylesheet" href="https://use.typekit.net/puu3khu.css" >
         <title>Evan Durkin</title>
+        <script src="header.js"></script>
+        <script src="footer.js"></script>
     </head>
 
     <body class="site-index">
+        <div class="header-container" style="grid-column: 1/4; margin-bottom: 2em;">
+            <div>
+                <img src="./logo/durkin-logo-index.png" alt="" class="logo">
+            </div>
+        </div>
         <main class="main-area">
-            <a href="#" class="link link-projects" id="link-projects">Projects</a>
-            <img src="" alt="" class="img-projects">
-            <a href="#" class="link link-database">Database Diagrams</a>
-            <img src="" alt="" class="img-database">
-            <img src="" alt="" class="img-api">
-            <a href="#" class="link link-api">API Unit Tests</a>
-            <a href="#" class="link link-resume">Resume</a>
-            <img src="" alt="" class="img-resume">
-            <a href="#" class="link link-about">About</a>
+            <a href="/personal-portfolio/projects.html" class="link link-projects">Projects</a>
+            <img src="/personal-portfolio/images/durkin_projects_index.jpg" alt="" class="img-projects">
+            <a href="/personal-portfolio/database.html" class="link link-database">Database Diagrams</a>
+            <img src="/personal-portfolio/images/durkin_database_index.jpg" alt="" class="img-database">
+            <img src="/personal-portfolio/images/durkin_api_index.jpg" alt="" class="img-api">
+            <a href="/personal-portfolio/api-unit-tests.html" class="link link-api">API Unit Tests</a>
+            <a href="/personal-portfolio/resume.html" class="link link-resume">Resume</a>
+            <img src="/personal-portfolio/images/durkin_resume_index.jpg" alt="" class="img-resume">
+            <a href="/personal-portfolio/about.html" class="link link-about">About</a>
         </main>
-        
+        <footer style="grid-column: 1/3;">
+            <div class="footer-links-index"><footer-component></footer-component></div>
+        </footer>
     </body>
 </html>
