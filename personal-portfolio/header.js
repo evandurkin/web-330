@@ -12,12 +12,12 @@ class Header extends HTMLElement
             `<span class="menu" style="font-size:30px;cursor:pointer;color:white;" onclick="openNav()">menu &nbsp; &#9776;</span>
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <a href="/personal-portfolio/index.html">Home</a>
-                <a href="/personal-portfolio/projects.html">Projects</a>
-                <a href="/personal-portfolio/database.html">Database Diagrams</a>
-                <a href="/personal-portfolio/api-unit-tests.html">API Unit Tests</a>
-                <a href="/personal-portfolio/resume.html">Resume</a>
-                <a href="/personal-portfolio/about.html">About</a>
+                <a href="index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="database.html">Database Diagrams</a>
+                <a href="api-unit-tests.html">API Unit Tests</a>
+                <a href="resume.html">Resume</a>
+                <a href="about.html">About</a>
             </div>`
     }
 }
