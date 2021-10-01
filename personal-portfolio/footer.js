@@ -12,7 +12,7 @@ class Footer extends HTMLElement
             `<ul>
                 <li><p style="font-weight:bold; margin-bottom:10px;">Links</p></li>
                 <li><a href="">GitHub</a></li>
-                <li><a href="">BU Wev Dev Degree</a></li>
+                <li><a href="">BU Web Dev Degree</a></li>
                 <li><a href="">BU YouTube</a></li>
                 <li><a href="">BU GitHub</a></li>
             </ul>`
