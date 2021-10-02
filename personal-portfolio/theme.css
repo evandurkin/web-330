@@ -82,30 +82,6 @@ ul {
   margin: 0;
 }
 
-.p-card {
-  border-top: 1px solid white;
-  margin-bottom: 2em;
-  display: flex;
-}
-
-.p-card-title {
-  font-size: 16pt;
-  font-weight: bold;
-  grid-row: 1;
-  margin-top: 5px;
-}
-
-.p-card-content {
-  font-size: 16pt;
-  grid-row: 2;
-}
-
-.card {
-  border-top: 1px solid white;
-  margin-bottom: 2em;
-  margin-left: 3em;
-}
-
 .card-title {
   font-size: 16pt;
   font-weight: bold;
@@ -114,4 +90,43 @@ ul {
 
 .card-content {
   font-size: 16pt;
+}
+
+/***********************************
+  INDEX PAGE STYLING
+***********************************/
+
+.link-projects:hover {
+  color: #04bf68;
+  border: 4px solid #04bf68;
+  border-radius: 0;
+  background-color: #beeed9;
+}
+
+.link-database:hover {
+  color: #9e91f2;
+  border: 4px solid #9e91f2;
+  border-radius: 0;
+  background-color: #e7e2fd;
+}
+
+.link-api:hover {
+  color: #f28241;
+  border: 4px solid #f28241;
+  border-radius: 0;
+  background-color: #fae1c1;
+}
+
+.link-resume:hover {
+  color: #446ff2;
+  border: 4px solid #446ff2;
+  border-radius: 0;
+  background-color: #d1dafb;
+}
+
+.link-about:hover {
+  color: #ff6666;
+  border: 4px solid #ff6666;
+  border-radius: 0;
+  background-color: #fed8d8;
 }
