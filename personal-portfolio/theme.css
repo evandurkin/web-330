@@ -1,16 +1,51 @@
 /*
-Author: Evan Durkin
+=======================================
+  Title: Personal Portfolio 
+  Author: Evan Durkin
+  Description: typography and element
+  styling for all pages
+=======================================
 */
+
 body {
   background-color: #0f0f0e;
 }
 
+li {
+  list-style-type: none;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+/*-----------------------------------------
+  Type Styling
+-----------------------------------------*/
 h1,
 h2,
-.card-title {
+.card-title,
+.resume-title {
   font-family: "neue-haas-grotesk-text", sans-serif;
   font-weight: 400;
   font-style: normal;
+}
+
+p,
+h3,
+.header-container,
+.header-project-page,
+.footer-links,
+.footer-links-index,
+.resume-description,
+#bio,
+#bucket-list-items {
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: none;
+  color: white;
 }
 
 h1 {
@@ -22,27 +57,55 @@ h2 {
   margin-top: 0;
 }
 
-p,
-.header-container,
-.header-project-page,
-.footer-links,
-.footer-links-index {
-  font-family: "neue-haas-grotesk-display", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  text-decoration: none;
-  color: white;
+h3 {
+  font-size: 22px;
+  letter-spacing: 1px;
 }
 
+.card-title {
+  font-size: 16pt;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.resume-title {
+  font-size: 16pt;
+  font-weight: bold;
+  color: #446ff2;
+}
+
+.resume-description {
+  vertical-align: baseline;
+}
+
+.card-title {
+  font-size: 16pt;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.card-content,
+.resume-description {
+  font-size: 16pt;
+}
+
+/*-----------------------------------------
+  Link Styling
+-----------------------------------------*/
+
 .link {
-  font-size: 38pt;
   transition-duration: 0.4s;
   text-align: left;
   font-family: "neue-haas-grotesk-text", sans-serif;
   font-weight: 400;
   font-style: normal;
-  padding: 10px;
-  vertical-align: bottom;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.index-link {
+  display: grid;
 }
 
 .card-link {
@@ -79,28 +142,9 @@ a:visited {
   color: none;
 }
 
-li {
-  list-style-type: none;
-}
-
-ul {
-  padding: 0;
-  margin: 0;
-}
-
-.card-title {
-  font-size: 16pt;
-  font-weight: bold;
-  margin-top: 5px;
-}
-
-.card-content {
-  font-size: 16pt;
-}
-
-/***********************************
-  INDEX PAGE STYLING
-***********************************/
+/*-----------------------------------------
+  Index Page Link Styling
+-----------------------------------------*/
 
 .link-projects:hover {
   color: #04bf68;

@@ -17,18 +17,41 @@
         <script src="footer.js"></script>
     </head>
 
-    <body class="site projects-page">
-        <div class="header-project-page">
+    <body class="site-about">
+        <!--Header container with header.js import-->
+        <div class="header-container">
             <a href="./index.html"><img src="./logo/durkin-logo-index.png" alt="" class="logo"></a>
             <header-component></header-component>
         </div>
+
         <header>
             <h1 style="color: #ff6666;" class="page-title">About</h1>
         </header>
-        <main>
-            <h1 style="color: white;">Nothing to see here! Still working on this page!</h1>
+
+        <!--Main content for information about Evan Durkin-->
+        <main class="main-area-about">
+            <div id="headshot">
+                <img src="./images/durkin-headshot.png" alt="" id="headshot-photo">
+                <h2 id="my-name">Evan Durkin</h2>
+            </div>
+            <h3 id="bio">Hello world! I'm an aspiring web developer primarily working with JavaScript and NodeJS. In my free time I enjoying staying active and exploring the arts and all things design. <br/><br/> Here are a few other things I'm working on...</h3>
+            <div id="bucket-list">
+                <h2 id="bucket-header">My Bucket List</h2>
+                <ul id="bucket-list-items">
+                    <li class="bucket">Create my own website!</li>
+                    <li class="bucket">Make a typeface for a project.</li>
+                    <li class="bucket">Take a U.S. road trip with friends.</li>
+                    <li class="bucket">Learn to play the piano (again).</li>
+                    <li class="bucket">Make a 3D printed house.</li>
+                    <li class="bucket">Exhibit my photographs in a group show.</li>
+                    <li class="bucket">Make my own line of silkscreen printed t-shirts.</li>
+                    <li class="bucket">Run a marathon.</li>
+                </ul>
+            </div>
         </main>
     </body>
+
+    <!--Footer container with footer.js import-->
     <footer>
         <div class="footer-links"><footer-component></footer-component></div>
     </footer>

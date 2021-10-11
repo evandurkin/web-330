@@ -17,16 +17,59 @@
         <script src="footer.js"></script>
     </head>
 
-    <body class="site">
+    <body class="site resume">
+        <!--Header container with header.js import-->
         <div class="header-container">
             <a href="./index.html"><img src="./logo/durkin-logo-index.png" alt="" class="logo"></a>
             <header-component></header-component>
         </div>
-        <main class="main-area-resume">
+
+        <header>
             <h1 style="color: #446ff2;" class="page-title">Resume</h1>
-            <img src="./images/durkin_resume_page.jpg" alt="" class="img-pages">
+        </header>
+        <img src="./images/durkin_resume_page.jpg" alt="" class="img-pages">
+
+        <!--Download link for PDF version of resume-->
+        <a href="/personal-portfolio/resume-evan-durkin.pdf" download="resume-evan-durkin" id="download-resume">Download PDF</a>
+
+        <!--Main content for resume body-->
+        <main class="main-area-resume">
+            <table class="resume-table" id="work-experience">
+                <tbody>
+                  <tr>
+                    <td class="resume-title">School of Visual Arts <br> 2019 - present</td>
+                    <td class="resume-description">Assistant for one of the BFA undergraduate programs.</td>
+                  </tr>
+                  <tr>
+                    <td class="resume-title">Printed Matter Inc <br> 2016 - 2019</td>
+                    <td class="resume-description">Main fulfillment coordinator for e-commerce and wholesale orders.</td>
+                  </tr>
+                  <tr>
+                    <td class="resume-title">International Center of <br> Photography <br> 2010 - 2016</td>
+                    <td class="resume-description">Registrar for the department of Continuing Education and part-time programs.</td>
+                  </tr>
+                </tbody>
+            </table>
+            <table class="resume-table" id="education">
+                <tbody>
+                  <tr>
+                    <td class="resume-title">Education</td>
+                    <td class="resume-description">Bellevue University &nbsp;&nbsp;|&nbsp;&nbsp; 2020 - present</td>
+                  </tr>
+                  <tr>
+                    <td class="resume-title">Skills</td>
+                    <td class="resume-description">HTML, &nbsp;CSS, &nbsp;JavaScript, &nbsp;NodeJS</td>
+                  </tr>
+                  <tr>
+                    <td class="resume-title">Contact</td>
+                    <td class="resume-description">edurkin@my365.bellevue.edu</td>
+                  </tr>
+                </tbody>
+            </table>
         </main>
     </body>
+
+    <!--Footer container with footer.js import-->
     <footer>
         <div class="footer-links"><footer-component></footer-component></div>
     </footer>
